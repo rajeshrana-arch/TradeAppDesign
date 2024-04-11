@@ -34,3 +34,6 @@ Service Responsible for identify the validation action based upon the type of Or
  - In case of any failure revert back to user with approporate answer.
 
 Based upon the stock name and action Type(Buy/Sell) it would be forwarding the respective queue in our kafka system for processing.
+
+#### Matching Engine
+Our component triggers fetching all buy/sell orders. For buy orders, it sorts by highest to lowest value; for sell orders, lowest to highest. It matches buy vs. sell orders, splitting if needed. Matched orders are processed; remaining ones are pushed back to the queue.
