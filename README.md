@@ -44,8 +44,19 @@ An integration layer connects our trading system with the Stock Exchange (Black 
 #### Notification Service:
 This lightweight service is tasked with notifying users about holidays, maintenance downtime, or unexpected system behavior. It efficiently delivers messages to keep users informed and ensure smooth operation of the system.
 #### Design Key Points:
-## High availability
+### High availability
 - We'll adopt a **containerized approach** to build our applications.
-- Utilizing **Kubernetes as our orchestrator**, we implement a strategy of maintaining an **idle replication set to three**, ensuring enhanced reliability and fault tolerance in our system architecture.
+- Utilizing **Kubernetes as our orchestrator**, we implement a strategy of maintaining an **idle replication set to three for each application**, ensuring enhanced reliability and fault tolerance in our system architecture.
 - Using **Rancher** we will simplifies Kubernetes cluster setup and management across various cloud providers and on-premises setups.
--  **Kafka brokers**, essential for high availability, will deploy with a **minimum of three brokers across different Kubernetes nodes**. This architecture ensures robustness and scalability in handling data streams
+-  **Kafka brokers**, essential for high availability, will deploy with a **minimum of three brokers across different Kubernetes nodes**. This architecture ensures robustness and scalability in handling data streams.
+
+### Volume of trade requests such as 100K in an hour
+Handling a high volume of trade requests, such as 100K in an hour, requires a scalable and efficient system architecture. Here's how to process such requests effectively.
+
+- **Optimized System Architecture**: Design a distributed and scalable system architecture using microservices, containers, and orchestration tools like Kubernetes. Distribute workload across multiple nodes to handle the high volume efficiently.
+- **Asynchronous Processing**: Implement asynchronous processing to handle requests concurrently. Utilize message queues like Kafka or RabbitMQ to buffer incoming requests and process them asynchronously, decoupling request processing from response generation.
+- **Horizontal Scaling**: Scale out your application horizontally by adding more instances or containers to handle increased load. Autoscaling mechanisms can automatically adjust resources based on demand, ensuring optimal performance during peak hours.
+- **Optimized Database Access**: Optimize database access patterns to handle high concurrency. Utilize database sharding, replication, and indexing techniques to distribute the load and improve database performance.
+- **Rate Limiting and Throttling**: Implement rate limiting and request throttling mechanisms to control the rate of incoming requests and prevent overload on the system. Define thresholds and limits to ensure fair usage and protect against abuse or denial-of-service attacks.
+- **Monitoring and Alerting**: Set up comprehensive monitoring and alerting systems to track system performance, resource utilization, and response times. Use tools like Prometheus, Grafana, or Datadog to monitor key metrics and receive alerts for potential issue.
+
