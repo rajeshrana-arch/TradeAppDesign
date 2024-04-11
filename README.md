@@ -40,3 +40,6 @@ Our component triggers fetching all buy/sell orders. For buy orders, it sorts by
 
 #### Executor Engine Service
 An integration layer connects our trading system with the Stock Exchange (Black Box System). After submitting a request, the Order's status is updated in the orderStatus queue. A message processor forwards the status to Analytics Service for system analysis and Notification Service for updating the OrderRequest table with appropriate status (Success, Failure, or Rejection).
+
+#### Notification Service:
+This lightweight service is tasked with notifying users about holidays, maintenance downtime, or unexpected system behavior. It efficiently delivers messages to keep users informed and ensure smooth operation of the system.
