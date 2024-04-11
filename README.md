@@ -37,3 +37,6 @@ Based upon the stock name and action Type(Buy/Sell) it would be forwarding the r
 
 #### Matching Engine
 Our component triggers fetching all buy/sell orders. For buy orders, it sorts by highest to lowest value; for sell orders, lowest to highest. It matches buy vs. sell orders, splitting if needed. Matched orders are processed; remaining ones are pushed back to the queue.Based on market cap, it routes to Large, Mid, Small, or Microcap queues so that we can do parallel processing. Later on these messages from queue is processed by Message Processor Engine.
+
+#### Executor Engine Service
+An integration layer connects our trading system with the Stock Exchange (Black Box System). After submitting a request, the Order's status is updated in the orderStatus queue. A message processor forwards the status to Analytics Service for system analysis and Notification Service for updating the OrderRequest table with appropriate status (Success, Failure, or Rejection).
