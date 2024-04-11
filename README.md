@@ -6,6 +6,7 @@
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 In trade brokerage system, brokerage application receives huge number of requests from different users on multiple channels. These requests are always come from multiple platforms such as mobile, website or over a call etc. Please refer the architecture diagram for reference:
+![alt text](https://github.com/rajeshrana-arch/TradeAppDesign/blob/master/Trade%20Design%20System.drawio.svg)
 
 - Type some Markdown on the left
 - See HTML in the right
