@@ -43,3 +43,9 @@ An integration layer connects our trading system with the Stock Exchange (Black 
 
 #### Notification Service:
 This lightweight service is tasked with notifying users about holidays, maintenance downtime, or unexpected system behavior. It efficiently delivers messages to keep users informed and ensure smooth operation of the system.
+#### Design Key Points:
+## High availability
+- We'll adopt a **containerized approach** to build our applications.
+- Utilizing **Kubernetes as our orchestrator**, we implement a strategy of maintaining an **idle replication set to three**, ensuring enhanced reliability and fault tolerance in our system architecture.
+- Using **Rancher** we will simplifies Kubernetes cluster setup and management across various cloud providers and on-premises setups.
+-  **Kafka brokers**, essential for high availability, will deploy with a **minimum of three brokers across different Kubernetes nodes**. This architecture ensures robustness and scalability in handling data streams
